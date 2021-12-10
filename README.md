@@ -23,3 +23,9 @@
    ```shell
    npx prettier --write .
    ```
+
+4. add vuex
+   
+   ```shell
+   yarn add vuex@next --save
+   ```
