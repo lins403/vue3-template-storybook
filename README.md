@@ -29,3 +29,10 @@
    ```shell
    yarn add vuex@next --save
    ```
+
+5. deploy setup
+   
+   ```shell
+   yarn add -D chromatic
+   yarn chromatic --project-token=
+   ```
