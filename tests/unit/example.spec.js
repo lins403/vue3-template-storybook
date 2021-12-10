@@ -1,12 +1,16 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+/* eslint-disable no-undef */
+import { mount } from '@vue/test-utils'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
+import TaskList from '../../src/components/TaskList.vue'
+
+//👇 Our story imported here
+import { WithPinnedTasks } from '../../src/components/TaskList.stories'
+
+test('renders pinned tasks at the start of the list', () => {
+  const wrapper = mount(TaskList, {
+    //👇 Story's args used with our test
+    propsData: WithPinnedTasks.args
   })
+  const firstPinnedTask = wrapper.find('.list-item:nth-child(1).TASK_PINNED')
+  expect(firstPinnedTask).not.toBe(null)
 })
